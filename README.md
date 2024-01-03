@@ -1,0 +1,1 @@
+Tickman is a user-friendly event ticket management system designed to streamline event planning and ticket organization. With a clean and intuitive interface, this application simplifies the process of creating, managing, and distributing event tickets. Built with Node.js and TypeScript, Tickman ensures smooth event experiences for both organizers and attendees.
