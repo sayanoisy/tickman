@@ -4,7 +4,11 @@
     [
       "module-resolver",
       {
-        "root": ["./src"]
+        "root": ["./src"],
+        "alias": {
+          "config": "./config",
+          "connections": "./connections"
+        }
       }
     ]
   ]
