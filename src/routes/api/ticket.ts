@@ -18,5 +18,6 @@ ticketRouter.get(
 ticketRouter.post("/save", ticketController.saveTicket);
 ticketRouter.put("/update/:id", ticketController.updateTicket);
 ticketRouter.delete("/delete/:id", ticketController.deleteTicket);
+ticketRouter.get("/book/:id", ticketController.bookTicket);
 
 export default ticketRouter;

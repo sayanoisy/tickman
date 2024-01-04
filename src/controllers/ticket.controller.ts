@@ -4,6 +4,7 @@ import ResponseHandler from "../utils/ResponseHandler";
 import { StatusCodes } from "http-status-codes";
 import Messages from "../utils/Messages";
 import objectIdCheck from "../validators/objectId.validator";
+import ticketActionService from "../services/ticket.action.service";
 
 const getAllTickets = async (
   req: Request,
@@ -136,6 +137,18 @@ const getNumberOfTicketsAvailableForEvent = async (
   }
 };
 
+const bookTicket = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { id } = req.params;
+    const userId = "6596b49705f0eefac1b4a25f";
+    const data = await ticketActionService.bookTicket(id, userId);
+    const response = ResponseHandler(StatusCodes.OK, Messages.SUCCESS, data);
+    return res.status(response.status).json(response);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const ticketController = {
   getAllTickets,
   getTicketById,
@@ -146,5 +159,6 @@ const ticketController = {
   deleteTicket,
   getNumberOfTicketsIssuedForEvent,
   getNumberOfTicketsAvailableForEvent,
+  bookTicket,
 };
 export default ticketController;
