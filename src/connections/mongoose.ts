@@ -1,8 +1,8 @@
 import { LOCALHOST_PORT, MONGO_CONNECTION_STRING } from "../config/index";
-import { Express } from "express";
+import { Application, Express } from "express";
 import mongoose from "mongoose";
 
-const mongooseConnection = (app: Express) => {
+const mongooseConnection = (app: Application) => {
   mongoose
     .connect(MONGO_CONNECTION_STRING)
     .then(() => app.listen(LOCALHOST_PORT))
