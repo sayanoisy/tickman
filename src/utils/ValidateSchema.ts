@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import { ZodError } from "zod";
 import { StatusCodes } from "http-status-codes";
 import ErrorHandler from "./ErrorHandler";
-import { UserValidatorSchema } from "../validators/user.validator";
 
 const ValidateSchema = (schema: any) => {
   return (req: Request, res: Response, next: NextFunction) => {
@@ -21,6 +20,4 @@ const ValidateSchema = (schema: any) => {
   };
 };
 
-const validateUser = ValidateSchema(UserValidatorSchema);
-
-export default validateUser;
+export default ValidateSchema;

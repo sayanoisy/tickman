@@ -2,6 +2,7 @@ import { StatusCodes } from "http-status-codes";
 import User, { IUser } from "../models/User";
 import Messages from "../utils/Messages";
 import CustomError from "../utils/CustomError";
+import objectIdCheck from "../validators/objectId.validator";
 
 const getAllUsers = async () => {
   try {
@@ -21,6 +22,7 @@ const getAllUsers = async () => {
 
 const getUserById = async (id: string) => {
   try {
+    await objectIdCheck(id);
     const user = await User.findById(id);
     if (!user) {
       const error: CustomError = new CustomError(
@@ -76,6 +78,7 @@ const saveUser = async (user: IUser) => {
 
 const updateUser = async (id: string, updatedFields: Partial<IUser>) => {
   try {
+    await objectIdCheck(id);
     const user = await User.findById(id);
     if (!user) {
       const error: CustomError = new CustomError(
@@ -96,6 +99,7 @@ const updateUser = async (id: string, updatedFields: Partial<IUser>) => {
 
 const deleteUser = async (id: string) => {
   try {
+    await objectIdCheck(id);
     const user = await User.findByIdAndDelete(id);
     if (!user) {
       const error: CustomError = new CustomError(

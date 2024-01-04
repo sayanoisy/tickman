@@ -7,7 +7,6 @@ exports["default"] = void 0;
 var _zod = require("zod");
 var _httpStatusCodes = require("http-status-codes");
 var _ErrorHandler = _interopRequireDefault(require("./ErrorHandler"));
-var _user = require("../validators/user.validator");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 var ValidateSchema = function ValidateSchema(schema) {
   return function (req, res, next) {
@@ -25,5 +24,4 @@ var ValidateSchema = function ValidateSchema(schema) {
     }
   };
 };
-var validateUser = ValidateSchema(_user.UserValidatorSchema);
-var _default = exports["default"] = validateUser;
+var _default = exports["default"] = ValidateSchema;
